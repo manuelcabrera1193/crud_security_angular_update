@@ -1,0 +1,14 @@
+<div class="full-width">
+    <mat-card>
+        <mat-card-content>
+            <mat-card-header>
+                <mat-card-title>¿Estas seguro que deseas eliminar a {{name}}?</mat-card-title>
+            </mat-card-header>
+            <button class="col button-send" mat-raised-button color="secondary" (click)="cancel()">Cancelar</button>
+            <button class="col button-send" mat-raised-button color="primary" (click)="eliminar()" type="submit">
+                <mat-icon>delete</mat-icon>
+                Eliminar
+            </button>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,33 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Categoria</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="full-width">
+            <div class="input-name row">
+                <div class="col full-width">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Código de la Categoria" formControlName="code" [(ngModel)]="code">
+                        <mat-error *ngIf="addressForm.controls['code'].hasError('required')">
+                            Es <strong>requerido</strong> el nombre de la Categoria.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="input-name row">
+                <div class="col full-width">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Nombre de la Categoria" formControlName="name" [(ngModel)]="name">
+                        <mat-error *ngIf="addressForm.controls['name'].hasError('required')">
+                            Es <strong>requerido</strong> el nombre de la Categoria.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary col" mat-raised-button color="secondary" (click)="cancel()">Cancelar</button>
+                <button class="btn btn-primary col" mat-raised-button color="primary" type="submit">Guardar</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

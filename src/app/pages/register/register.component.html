@@ -1,0 +1,64 @@
+<div class="container main">
+    <form class="form" [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+        <mat-card>
+            <mat-card-header class="headerForm mat-primary">
+                <mat-card-title>Registro</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <div>
+                        <mat-form-field class="row">
+                            <input matInput placeholder="Nombre" formControlName="name" [(ngModel)]="name">
+                            <mat-error *ngIf="addressForm.controls['name'].hasError('required')">
+                                Es <strong>requerido</strong> el nombre de Usuario
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="row">
+                            <input matInput placeholder="Nombre de Usuario" formControlName="nameUser" [(ngModel)]="nameUser">
+                            <mat-error *ngIf="addressForm.controls['nameUser'].hasError('required')">
+                                Es <strong>requerido</strong> el nombre de Usuario
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="row">
+                            <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" type="email">
+                            <mat-error *ngIf="addressForm.controls['email'].hasError('required')">
+                                Es <strong>requerido</strong> el nombre la constraseña
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Roles</mat-label>
+                            <mat-select [formControl]="toppings" multiple>
+                                <mat-select-trigger>
+                                    {{toppings.value ? toppings.value[0] : ''}}
+                                    <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                                  (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                                </span>
+                                </mat-select-trigger>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="row">
+                            <input matInput placeholder="Contraseña" formControlName="password" [(ngModel)]="password" type="password">
+                            <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
+                                Es <strong>requerido</strong> el nombre la constraseña
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="button-send">
+                    <button mat-raised-button color="primary" type="submit">Guardar</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </form>
+
+</div>

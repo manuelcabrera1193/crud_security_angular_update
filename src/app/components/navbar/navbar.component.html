@@ -1,0 +1,23 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button class="example-icon" routerLink="/home">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span>{{tokenService.getTitle()}}</span>
+    <div class="spacer"></div>
+
+    <button mat-button color="primary" *ngIf="tokenService.isLogged()" [matMenuTriggerFor]="mant">
+        <mat-icon class="icon">list</mat-icon>Mantenimientos</button>
+    <mat-menu #mant>
+        <button mat-menu-item routerLink="/listar-categorias">Categorias</button>
+    </mat-menu>
+
+    <button mat-button color="primary" *ngIf="tokenService.isLogged() && tokenService.isAdmin()" routerLink="/register">
+        <mat-icon class="icon">logout</mat-icon>Registrar</button>
+
+    <button mat-raised-button color="primary" *ngIf="tokenService.isLogged()" (click)="logout()">
+        <mat-icon class="icon">logout</mat-icon>Logout</button>
+
+    <button mat-raised-button color="primary" *ngIf="!tokenService.isLogged()" routerLink="/login">
+        <mat-icon class="icon">login</mat-icon>Login</button>
+
+</mat-toolbar>

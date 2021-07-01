@@ -1,0 +1,34 @@
+<div class="container main">
+    <form class="form" [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+        <mat-card>
+            <mat-card-header class="headerForm mat-primary">
+                <mat-card-title>Login</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <div>
+                        <mat-form-field class="row">
+                            <input matInput placeholder="Nombre de Usuario" formControlName="nameUser" [(ngModel)]="nameUser">
+                            <mat-error *ngIf="addressForm.controls['nameUser'].hasError('required')">
+                                Es <strong>requerido</strong> el nombre de Usuario
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="row">
+                            <input matInput placeholder="Contraseña" formControlName="password" [(ngModel)]="password" type="password">
+                            <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
+                                Es <strong>requerido</strong> el nombre la constraseña
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="button-send">
+                    <button mat-raised-button color="primary" type="submit">Ingresar</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </form>
+
+</div>
