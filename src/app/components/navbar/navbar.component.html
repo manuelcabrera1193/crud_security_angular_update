@@ -11,7 +11,9 @@
         <button mat-menu-item routerLink="/listar-categorias">Categorias</button>
     </mat-menu>
 
-    <button mat-button color="primary" *ngIf="tokenService.isLogged() && tokenService.isAdmin()" routerLink="/register">
+    <!-- <button mat-button color="primary" *ngIf="tokenService.isLogged() && tokenService.isAdmin()" routerLink="/register">
+        <mat-icon class="icon">logout</mat-icon>Registrar</button> -->
+    <button mat-button color="primary" routerLink="/register">
         <mat-icon class="icon">logout</mat-icon>Registrar</button>
 
     <button mat-raised-button color="primary" *ngIf="tokenService.isLogged()" (click)="logout()">
